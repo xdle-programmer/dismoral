@@ -27,7 +27,7 @@ class CreateOrcInfosTable extends Migration
             $table->unsignedBigInteger('orc_id')->nullable();
             $table->foreign('orc_id')
                 ->references('id')
-                ->on('orcs')
+                ->on('orc_infos')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
