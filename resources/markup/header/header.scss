@@ -1,0 +1,76 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: var(--main-color);
+  left: 0;
+  top: 0;
+  color: var(--white-color);
+
+
+  &__block {
+    @include flex-row-center;
+    justify-content: space-between;
+    padding: 7px 0;
+  }
+
+  &__logo {
+
+  }
+
+  &__logo-big {
+    font-size: 18px;
+  }
+
+  &__logo-small {
+    font-size: 12px;
+  }
+
+  &__counters {
+    @include flex-row;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+
+  &__counter-item {
+    margin-left: 40px;
+    @include flex-row;
+  }
+
+  &__counter-item-title {
+    @include flex-row;
+    align-items: center;
+  }
+
+  &__counter-item-title-text {
+  }
+
+  &__counter-item-title-number {
+    margin-left: 5px;
+    background: var(--natural-color);
+    border: 1px solid var(--natural-color);
+    padding: 5px 10px;
+    color: var(--main-color);
+    border-radius: 4px;
+    color: var(--black-color);
+  }
+
+  &__counter-item-button {
+    border: 1px solid var(--natural-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: var(--white-color);
+
+    &:hover {
+      background: var(--natural-color);
+      color: var(--black-color);
+    }
+  }
+}

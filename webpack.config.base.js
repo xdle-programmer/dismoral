@@ -26,23 +26,13 @@ let getFiles = function (dir, files_, extension) {
 let styleMarkupArray = [];
 getFiles(path.resolve(__dirname, './resources/markup'), styleMarkupArray, 'scss');
 getFiles(path.resolve(__dirname, './resources/markup'), styleMarkupArray, 'css');
+
 // Js файлы верстки, включая точку входа
 let jsMarkupArray = [path.resolve(__dirname, './resources/index.js')];
 getFiles(path.resolve(__dirname, './resources/markup'), jsMarkupArray, 'js');
 
 
-// Файлы стилей компонентов
-let styleComponentsArray = [];
-getFiles(path.resolve(__dirname, './resources/views/components'), styleComponentsArray, 'css');
-getFiles(path.resolve(__dirname, './resources/views/components'), styleComponentsArray, 'scss');
-// Файлы скриптов компонентов
-let jsComponentsArray = [];
-getFiles(path.resolve(__dirname, './resources/views/components'), jsComponentsArray, 'js');
-
-let jsArray = jsMarkupArray.concat(jsComponentsArray);
-let styleArray = styleMarkupArray.concat(styleComponentsArray);
-let fullArray = jsArray.concat(styleArray);
-
+let fullArray = jsMarkupArray.concat(styleMarkupArray);
 
 
 module.exports = {
