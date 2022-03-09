@@ -383,15 +383,24 @@ button:focus, input:focus, textarea:focus {
 
 .occupant__title {
   font-size: 30px;
-  margin-bottom: 20px; }
+  margin-bottom: 5px; }
+
+.occupant__text {
+  margin-bottom: 30px; }
 
 .occupant__input-item {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px; }
+  grid-gap: 10px;
+  margin-bottom: 10px; }
+
+.occupant__button-more {
+  cursor: pointer; }
+  .occupant__button-more:hover {
+    color: var(--main-color); }
 
 .occupant__button {
-  margin-top: 15px; }
+  margin-top: 30px; }
 
 .placeholder {
   position: relative;

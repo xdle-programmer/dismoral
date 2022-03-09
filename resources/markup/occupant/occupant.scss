@@ -7,7 +7,11 @@
 
   &__title {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
   }
 
   &__inputs {
@@ -17,9 +21,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__button-more {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--main-color);
+    }
   }
 
   &__button {
-    margin-top: 15px;
+    margin-top: 30px;
   }
 }

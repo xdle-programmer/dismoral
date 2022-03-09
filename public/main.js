@@ -2391,24 +2391,60 @@ console.log(123);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../custom-select/custom-select */ "./resources/markup/custom-select/custom-select.js");
 
-const listOptions = [{
-  value: 1,
-  name: `Одноклассники`
-}, {
-  value: 2,
-  name: `Вконтакте`
-}, {
-  value: 3,
-  name: `Instagram`
-}, {
-  value: 4,
-  name: `Facebook`
-}];
-let select = new _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__.createSelect({
-  placeholder: 'Социальная сеть',
-  values: listOptions,
-  $select: document.querySelector('#zzz')
-});
+const $occupant = document.querySelector('.occupant');
+
+if ($occupant) {
+  occupantHandler($occupant);
+}
+
+function occupantHandler($wrapper) {
+  const networkOptions = [{
+    value: 1,
+    name: `Вконтакте`
+  }, {
+    value: 2,
+    name: `Instagram`
+  }, {
+    value: 3,
+    name: `Одноклассники`
+  }, {
+    value: 4,
+    name: `Facebook`
+  }];
+  const $inputsWrapper = $wrapper.querySelector('.occupant__inputs');
+  const $rowTemplate = $wrapper.querySelector('.input-item-template');
+  const $moreButton = $wrapper.querySelector('.occupant__button-more');
+  init();
+
+  function init() {
+    addEventListener();
+    createRow('Например: оккупант');
+    createRow('Например: девушка врага');
+    createRow('Например: мама');
+  }
+
+  function addEventListener() {
+    $moreButton.addEventListener('click', () => {
+      createRow('Комментарий');
+    });
+  }
+
+  function createRow(commentPlaceholder) {
+    const $clone = document.importNode($rowTemplate.content, true);
+    const $select = $clone.querySelector('select');
+    const $comment = $clone.querySelector('.occupant__input-item-inner--comment');
+    const $commentInputPlaceholder = $comment.querySelector('input');
+    const $commentTextPlaceholder = $comment.querySelector('.placeholder__item');
+    let select = new _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__.createSelect({
+      placeholder: 'Социальная сеть',
+      values: networkOptions,
+      $select
+    });
+    $commentInputPlaceholder.placeholder = commentPlaceholder;
+    $commentTextPlaceholder.innerText = commentPlaceholder;
+    $inputsWrapper.appendChild($clone);
+  }
+}
 
 /***/ }),
 
