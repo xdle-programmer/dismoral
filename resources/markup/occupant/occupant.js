@@ -40,9 +40,9 @@ function occupantHandler($wrapper) {
     }
 
     function addEventListener() {
-        $moreButton.addEventListener('click',()=>{
+        $moreButton.addEventListener('click', () => {
             createRow('Комментарий');
-        })
+        });
     }
 
 
@@ -64,5 +64,4 @@ function occupantHandler($wrapper) {
 
         $inputsWrapper.appendChild($clone);
     }
-
 }
