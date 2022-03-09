@@ -2494,6 +2494,16 @@ function checkEmptyInput($wrapper) {
 
 /***/ }),
 
+/***/ "./resources/markup/send/send.js":
+/*!***************************************!*\
+  !*** ./resources/markup/send/send.js ***!
+  \***************************************/
+/***/ (function() {
+
+
+
+/***/ }),
+
 /***/ "./resources/markup/base/main.scss":
 /*!*****************************************!*\
   !*** ./resources/markup/base/main.scss ***!
@@ -2648,6 +2658,19 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+
+/***/ "./resources/markup/send/send.scss":
+/*!*****************************************!*\
+  !*** ./resources/markup/send/send.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
 /***/ })
 
 /******/ 	});
@@ -2715,6 +2738,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./resources/markup/header/header.js");
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.js");
 /******/ 	__webpack_require__("./resources/markup/placeholder/placeholder.js");
+/******/ 	__webpack_require__("./resources/markup/send/send.js");
 /******/ 	__webpack_require__("./resources/markup/base/main.scss");
 /******/ 	__webpack_require__("./resources/markup/base/media-queries.scss");
 /******/ 	__webpack_require__("./resources/markup/base/mixins.scss");
@@ -2726,7 +2750,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./resources/markup/input/input.scss");
 /******/ 	__webpack_require__("./resources/markup/layout/layout.scss");
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.scss");
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/markup/placeholder/placeholder.scss");
+/******/ 	__webpack_require__("./resources/markup/placeholder/placeholder.scss");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/markup/send/send.scss");
 /******/ 	
 /******/ })()
 ;
