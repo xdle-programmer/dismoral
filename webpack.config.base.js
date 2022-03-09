@@ -30,17 +30,6 @@ getFiles(path.resolve(__dirname, './resources/markup'), styleMarkupArray, 'css')
 let jsMarkupArray = [path.resolve(__dirname, './resources/index.js')];
 getFiles(path.resolve(__dirname, './resources/markup'), jsMarkupArray, 'js');
 
-// Файлы стилей плагинов
-let stylePluginsArray = [];
-getFiles(path.resolve(__dirname, './resources/plugins'), stylePluginsArray, 'scss');
-getFiles(path.resolve(__dirname, './resources/plugins'), stylePluginsArray, 'css');
-// Файлы скриптов плагинов
-let jsPluginsArray = [];
-getFiles(path.resolve(__dirname, './resources/plugins'), jsPluginsArray, 'js');
-
-// Js файлы утилит
-let jsUtilitiesArray = [];
-getFiles(path.resolve(__dirname, './resources/utilities'), jsUtilitiesArray, 'js');
 
 // Файлы стилей компонентов
 let styleComponentsArray = [];
@@ -50,22 +39,16 @@ getFiles(path.resolve(__dirname, './resources/views/components'), styleComponent
 let jsComponentsArray = [];
 getFiles(path.resolve(__dirname, './resources/views/components'), jsComponentsArray, 'js');
 
-let jsArray = jsMarkupArray.concat(jsUtilitiesArray)
-    .concat(jsPluginsArray)
-    .concat(jsComponentsArray);
-let styleArray = styleMarkupArray.concat(stylePluginsArray)
-    .concat(styleComponentsArray);
+let jsArray = jsMarkupArray.concat(jsComponentsArray);
+let styleArray = styleMarkupArray.concat(styleComponentsArray);
 let fullArray = jsArray.concat(styleArray);
 
-// Js файлы утилит
-let jsSentryArray = [];
-getFiles(path.resolve(__dirname, './resources/sentry'), jsSentryArray, 'js');
+
 
 module.exports = {
     mode: 'development',
     entry: {
         main: fullArray,
-        sentry: jsSentryArray,
     },
     output: {
         filename: '[name].js',
