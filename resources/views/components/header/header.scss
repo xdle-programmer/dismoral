@@ -1,0 +1,43 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../../../markup/base/mixins";
+@import "../../../markup/base/variables";
+@import "../../../markup/base/media-queries";
+
+.header {
+  position: fixed;
+  width: 100%;
+  background: var(--main-color);
+  left: 0;
+  top: 0;
+
+
+  &__block {
+  }
+
+  &__Logo {
+  }
+
+  &__Logo-big {
+  }
+
+  &__Logo-small {
+  }
+
+  &__counters {
+  }
+
+  &__counter-item {
+  }
+
+  &__counter-item-title {
+  }
+
+  &__counter-item-title-text {
+  }
+
+  &__counter-item-title-number {
+  }
+
+  &__counter-item-button {
+  }
+}
