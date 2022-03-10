@@ -17,6 +17,12 @@ class OrcController extends Controller
         return view('occupant', ['orc' => $orc]);
     }
 
+    public function findOrcDoesntHaveData()
+    {
+        $orc =  OrcInfo::doesntHave('orcs')->first();
+        return view('occupant', ['orc' => $orc]);
+    }
+
     public function saveOrc(Request $request, OrcInfo $orc)
     {
         $request->validate([
