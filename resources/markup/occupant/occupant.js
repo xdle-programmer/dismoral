@@ -45,22 +45,19 @@ function occupantHandler($wrapper) {
 
             $items.forEach(($item) => {
                 const link = $item.querySelector('[data-orc-link]').value;
-                const net = $item.querySelector('[data-orc-net]').value;
+                let net = $item.querySelector('[data-orc-net]').value;
                 const comment = $item.querySelector('[data-orc-comment]').value;
 
                 if (link !== '') {
-                    if (net !== 'default') {
-                        sendObject.push({
-                            link,
-                            net,
-                            comment
-                        });
-                    } else {
-                        sendObject.push({
-                            link,
-                            comment
-                        });
+                    if (net === 'default') {
+                        net = 0
                     }
+
+                    sendObject.push({
+                        link,
+                        net,
+                        comment
+                    });
                 }
             });
 
@@ -70,7 +67,7 @@ function occupantHandler($wrapper) {
 
             axios.post(`/occupant/item/${orcId}/add-data`, {data: sendObject})
                 .then((response) => {
-                    console.log(response);
+                    window.location.href = '/occupant/find';
                 })
                 .catch((error) => {
                     alert(error);
