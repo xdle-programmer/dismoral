@@ -23,6 +23,15 @@ class OrcController extends Controller
         return view('occupant', ['orc' => $orc]);
     }
 
+
+    public function ocrCheck(OrcInfo $orc)
+    {
+        $orc->is_checked = 1;
+        $orc->save();
+        return response()->json([
+            'status' => 'OK'
+        ]);
+    }
     public function saveOrc(Request $request, OrcInfo $orc)
     {
         $request->validate([
@@ -47,4 +56,6 @@ class OrcController extends Controller
             'status' => 'OK'
         ]);
     }
+
+
 }
