@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 
 Route::get('occupant/item/{orc}', [Controllers\OrcController::class, 'orcInfo']);
+Route::get('occupant/find', [Controllers\OrcController::class, 'orcInfo'])->name('find');
+Route::get('occupant/send', [Controllers\OrcController::class, 'orcInfo'])->name('send');

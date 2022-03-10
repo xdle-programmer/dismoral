@@ -10,11 +10,6 @@ class OrcController extends Controller
     public function orcInfo(Orc $orc)
     {
         $orc->load('info');
-        return view('occupant', ['orc'=>$orc]);
-    }
-
-    public function test()
-    {
-        dd("AAAAAAAAA");
+        return view('occupant', ['orc' => $orc]);
     }
 }
