@@ -23,6 +23,7 @@ Route::get('occupant/item/{orc}', [Controllers\OrcController::class, 'orcInfo'])
 Route::get('occupant/find', [Controllers\OrcController::class, 'orcInfo'])->name('find');
 Route::get('occupant/send', [Controllers\OrcController::class, 'orcInfo'])->name('send');
 
+Route::post('occupant/item/{orc}/add-data', [Controllers\OrcController::class, 'saveOrc']);
 
 Route::get('occupant/send-item', function () {
     return view('send');
