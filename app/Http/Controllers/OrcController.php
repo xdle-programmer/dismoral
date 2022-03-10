@@ -17,11 +17,17 @@ class OrcController extends Controller
         return view('occupant', ['orc' => $orc]);
     }
 
+    public function findOrcDoesntHaveData()
+    {
+        $orc =  OrcInfo::doesntHave('orcs')->first();
+        return view('occupant', ['orc' => $orc]);
+    }
+
     public function saveOrc(Request $request, OrcInfo $orc)
     {
         $request->validate([
             'data' => 'array',
-            'data.*.link' => 'nullable|string',
+            'data.*.link' => 'required|string',
             'data.*.net' => 'nullable|integer',
             'data.*.comment' => 'nullable|string'
         ]);
@@ -32,7 +38,7 @@ class OrcController extends Controller
             $orcData = new Orc();
             $orcData->orc_id  = $orc->id;
             $orcData->link = $item['link'];
-            $orcData->net = $item['net'];
+            $orcData->net = $item['net'] ?? 0;
             $orcData->comment = $item['comment'] ?? '';
             $orcData->save();
         }
