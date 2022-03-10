@@ -16,7 +16,7 @@ class CreateOrcsTable extends Migration
         Schema::create('orcs', function (Blueprint $table) {
             $table->id();
             $table->string('link')->nullable();
-            $table->string('net')->nullable();
+            $table->integer('net')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();
         });
