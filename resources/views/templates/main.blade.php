@@ -20,7 +20,7 @@
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
                     <div class="header__counter-item-title-text">Найдено соцсетей</div>
-                    <div class="header__counter-item-title-number">0</div>
+                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}</div>
                 </div>
                 <a href="{{route('find')}}" class="header__counter-item-button">Найти</a>
             </div>
@@ -28,7 +28,7 @@
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
                     <div class="header__counter-item-title-text">Написано оккупантам</div>
-                    <div class="header__counter-item-title-number">0</div>
+                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}</div>
                 </div>
                 <a href="{{route('send')}}" class="header__counter-item-button">Написать</a>
             </div>
