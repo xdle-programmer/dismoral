@@ -2390,6 +2390,8 @@ console.log(123);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../custom-select/custom-select */ "./resources/markup/custom-select/custom-select.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../index */ "./resources/index.js");
+
 
 const $occupant = document.querySelector('.occupant');
 
@@ -2414,6 +2416,8 @@ function occupantHandler($wrapper) {
   const $inputsWrapper = $wrapper.querySelector('.occupant__inputs');
   const $rowTemplate = $wrapper.querySelector('.input-item-template');
   const $moreButton = $wrapper.querySelector('.occupant__button-more');
+  const $saveButton = $wrapper.querySelector('.occupant__button--save');
+  const orcId = $wrapper.dataset.orcId;
   init();
 
   function init() {
@@ -2426,6 +2430,42 @@ function occupantHandler($wrapper) {
   function addEventListener() {
     $moreButton.addEventListener('click', () => {
       createRow('Комментарий');
+    });
+    $saveButton.addEventListener('click', () => {
+      const $items = $wrapper.querySelectorAll('.occupant__input-item');
+      const sendObject = [];
+      $items.forEach($item => {
+        const link = $item.querySelector('[data-orc-link]').value;
+        const net = $item.querySelector('[data-orc-net]').value;
+        const comment = $item.querySelector('[data-orc-comment]').value;
+
+        if (link !== '') {
+          if (net !== 'default') {
+            sendObject.push({
+              link,
+              net,
+              comment
+            });
+          } else {
+            sendObject.push({
+              link,
+              comment
+            });
+          }
+        }
+      });
+
+      if (sendObject.length === 0) {
+        return;
+      }
+
+      _index__WEBPACK_IMPORTED_MODULE_1__.axios.post(`/occupant/item/${orcId}/add-data`, {
+        data: sendObject
+      }).then(response => {
+        console.log(response);
+      }).catch(error => {
+        alert(error);
+      });
     });
   }
 
@@ -2732,8 +2772,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./resources/index.js");
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	__webpack_require__("./resources/index.js");
 /******/ 	__webpack_require__("./resources/markup/custom-select/custom-select.js");
 /******/ 	__webpack_require__("./resources/markup/header/header.js");
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.js");
