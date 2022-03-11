@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="occupant layout" data-orc-id="{{$orc->id}}">
-        <div class="occupant__title">{{$orc->fio}}</div>
+        <div class="occupant__title">Оккупант: {{$orc->fio}}</div>
         <div class="occupant__text">{{$orc->person}}</div>
         <div class="occupant__text">Найдите этого человека в соцсетях и сохраните ссылки на профили. Если вы сомневаетесь, он ли это - ничего страшного. Даже если мы напишем не
             оккупанту, сарафанное радио сработает.
