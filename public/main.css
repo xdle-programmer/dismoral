@@ -230,6 +230,8 @@ button:focus, input:focus, textarea:focus {
     align-items: center;
     justify-content: space-between;
     padding: 7px 0; }
+  .header__logo {
+    color: var(--white-color); }
   .header__logo-big {
     font-size: 18px; }
   .header__logo-small {
@@ -390,7 +392,7 @@ button:focus, input:focus, textarea:focus {
 
 .occupant__input-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   margin-bottom: 10px; }
 
@@ -401,6 +403,29 @@ button:focus, input:focus, textarea:focus {
 
 .occupant__button {
   margin-top: 30px; }
+
+.occupant__helps {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding-bottom: 200px; }
+
+.occupant__helps-item-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  font-style: italic; }
+
+.occupant__helps-item-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px; }
+
+.occupant__helps-item-image {
+  display: block;
+  width: 100%;
+  height: auto; }
 
 .placeholder {
   position: relative;

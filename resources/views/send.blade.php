@@ -2,46 +2,39 @@
 
 @section('content')
 
-    <div class="occupant layout">
-        <div class="occupant__title">{!!  $orc->info->fio!!}</div>
-        <div class="occupant__text">{!! $orc->info->person !!}</div>
-        <div class="occupant__text">Найдите этого человека в соцсетях и сохраните ссылки на профили. Если вы сомневаетесь, он ли это - ничего страшного. Даже если мы напишем не
-            оккупанту, сарафанное радио сработает.
-        </div>
-        <div class="occupant__inputs">
+    <div class="occupant-send layout">
+        <div class="occupant-send__title">{!!  $orc->fio!!}</div>
 
-        </div>
-        <div class="occupant__button-more">+ Добавить еще одну ссылку</div>
 
-        <div class="occupant__button button">Сохранить</div>
+        <div class="occupant-send__text">Напишите оккупанту</div>
 
-        <template class="input-item-template">
-            <div class="occupant__input-item">
-                <div class="occupant__input-item-inner">
-                    <div class="placeholder">
-                        <input class="input placeholder__input" placeholder="Ссылка">
-                        <div class="placeholder__item">Ссылка</div>
-                    </div>
+
+        <div class="occupant-send__items">
+
+            <div class="occupant-send__links">
+
+                <?php foreach ($orc->orcs as $orcLink): ?>
+
+                <div class="occupant-send__link">
+                    <div class="occupant-send__link"></div>
                 </div>
+                <?php print_r($orcLink->link); ?>
+                <?php print_r($orcLink->net); ?>
+                <?php print_r($orcLink->comment); ?>
 
-                <div class="occupant__input-item-inner">
-                    <select class="select"></select>
-                </div>
+                <?php endforeach; ?>
 
-                <div class="occupant__input-item-inner occupant__input-item-inner--comment">
-                    <div class="placeholder">
-                        <input class="input placeholder__input" placeholder="Комментарий">
-                        <div class="placeholder__item">Комментарий</div>
-                    </div>
-                </div>
             </div>
-        </template>
 
+            <div class="occupant-send__info">
+                <div class="occupant-send__info-title">Что написать</div>
+                <div class="occupant-send__info-text">Что написать</div>
+
+            </div>
+
+        </div>
+
+        <div class="occupant-send__button button">Написал</div>
     </div>
-
-
-
-    <pre>{!! $orc->orc_id !!}</pre>
-
 
 @endsection

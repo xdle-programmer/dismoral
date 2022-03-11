@@ -20,12 +20,13 @@ Route::get('/', function () {
 
 
 Route::get('occupant/item/{orc}', [Controllers\OrcController::class, 'orcInfo']);
+Route::get('occupant/send/{orc}', [Controllers\OrcController::class, 'orcSend']);
 Route::get('occupant/find', [Controllers\OrcController::class, 'findOrcDoesntHaveData'])->name('find');
 Route::get('occupant/send', [Controllers\OrcController::class, 'orcInfo'])->name('send');
 Route::get('occupant/item/{orc}/check', [Controllers\OrcController::class, 'ocrCheck'])->name('check');
 
 Route::post('occupant/item/{orc}/add-data', [Controllers\OrcController::class, 'saveOrc']);
 
-Route::get('occupant/send-item', function () {
-    return view('send');
-});
+//Route::get('occupant/send-item', function () {
+//    return view('send');
+//});

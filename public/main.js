@@ -2436,17 +2436,12 @@ function occupantHandler($wrapper) {
       const sendObject = [];
       $items.forEach($item => {
         const link = $item.querySelector('[data-orc-link]').value;
-        let net = $item.querySelector('[data-orc-net]').value;
         const comment = $item.querySelector('[data-orc-comment]').value;
 
         if (link !== '') {
-          if (net === 'default') {
-            net = 0;
-          }
-
           sendObject.push({
+            net: 0,
             link,
-            net,
             comment
           });
         }
@@ -2468,15 +2463,9 @@ function occupantHandler($wrapper) {
 
   function createRow(commentPlaceholder) {
     const $clone = document.importNode($rowTemplate.content, true);
-    const $select = $clone.querySelector('select');
     const $comment = $clone.querySelector('.occupant__input-item-inner--comment');
     const $commentInputPlaceholder = $comment.querySelector('input');
     const $commentTextPlaceholder = $comment.querySelector('.placeholder__item');
-    let select = new _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__.createSelect({
-      placeholder: 'Социальная сеть',
-      values: networkOptions,
-      $select
-    });
     $commentInputPlaceholder.placeholder = commentPlaceholder;
     $commentTextPlaceholder.innerText = commentPlaceholder;
     $inputsWrapper.appendChild($clone);
