@@ -23,6 +23,11 @@ class OrcController extends Controller
         return view('occupant', ['orc' => $orc]);
     }
 
+    public function findOrcDoesntHaveSends()
+    {
+        $orc =  OrcInfo::with('orcs')->where('is_checked', 0)->first();
+        return view('occupant', ['orc' => $orc]);
+    }
 
     public function ocrCheck(OrcInfo $orc)
     {
