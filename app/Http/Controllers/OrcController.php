@@ -25,8 +25,19 @@ class OrcController extends Controller
 
     public function findOrcDoesntHaveData()
     {
-        $orc =  OrcInfo::doesntHave('orcs')->first();
+        $orc = OrcInfo::doesntHave('orcs')->first();
         return view('occupant', ['orc' => $orc]);
+    }
+
+    public function findOrcDoesntHaveSend()
+    {
+        $orc = OrcInfo::where('is_checked', 0)->whereHas('orcs')->first();
+
+        if ($orc === null) {
+            return view('send-empty');
+        }
+
+        return view('send', ['orc' => $orc]);
     }
 
 
@@ -38,6 +49,7 @@ class OrcController extends Controller
             'status' => 'OK'
         ]);
     }
+
     public function saveOrc(Request $request, OrcInfo $orc)
     {
         $request->validate([
@@ -49,9 +61,9 @@ class OrcController extends Controller
 
         $data = $request->data;
 
-        foreach ($data as $key => $item){
+        foreach ($data as $key => $item) {
             $orcData = new Orc();
-            $orcData->orc_id  = $orc->id;
+            $orcData->orc_id = $orc->id;
             $orcData->link = $item['link'];
             $orcData->net = $item['net'] ?? 0;
             $orcData->comment = $item['comment'] ?? '';
