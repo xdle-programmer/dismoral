@@ -5,34 +5,65 @@
 
 .occupant {
 
-  &__title {
-    font-size: 30px;
-    margin-bottom: 5px;
-  }
-
-  &__text {
-    margin-bottom: 30px;
-  }
-
-  &__inputs {
-  }
-
-  &__input-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  &__button-more {
-    cursor: pointer;
-
-    &:hover {
-      color: var(--main-color);
+    &__title {
+        font-size: 30px;
+        margin-bottom: 5px;
     }
-  }
 
-  &__button {
-    margin-top: 30px;
-  }
+    &__text {
+        margin-bottom: 30px;
+    }
+
+    &__inputs {
+    }
+
+    &__input-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__button-more {
+        cursor: pointer;
+
+        &:hover {
+            color: var(--main-color);
+        }
+    }
+
+    &__button {
+        margin-top: 30px;
+    }
+
+    &__helps {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+        padding-bottom: 200px;
+    }
+
+    &__helps-item {
+    }
+
+    &__helps-item-title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        text-align: center;
+        font-style: italic;
+    }
+
+    &__helps-item-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+    }
+
+    &__helps-item-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--main-color);
+    }
 }

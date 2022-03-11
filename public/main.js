@@ -2381,6 +2381,44 @@ console.log(123);
 
 /***/ }),
 
+/***/ "./resources/markup/occupant-send/occupant-send.js":
+/*!*********************************************************!*\
+  !*** ./resources/markup/occupant-send/occupant-send.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index */ "./resources/index.js");
+
+const $occupantSend = document.querySelector('.occupant-send');
+
+if ($occupantSend) {
+  occupantSendHandler($occupantSend);
+}
+
+function occupantSendHandler($wrapper) {
+  const $saveButton = $wrapper.querySelector('.occupant-send__button');
+  const orcId = $wrapper.dataset.orcId;
+  init();
+
+  function init() {
+    addEventListener();
+  }
+
+  function addEventListener() {
+    $saveButton.addEventListener('click', () => {
+      _index__WEBPACK_IMPORTED_MODULE_0__.axios.post(`/occupant/item/${orcId}/check`).then(response => {
+        window.location.href = '/occupant/send';
+      }).catch(error => {
+        alert(error);
+      });
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./resources/markup/occupant/occupant.js":
 /*!***********************************************!*\
   !*** ./resources/markup/occupant/occupant.js ***!
@@ -2436,17 +2474,12 @@ function occupantHandler($wrapper) {
       const sendObject = [];
       $items.forEach($item => {
         const link = $item.querySelector('[data-orc-link]').value;
-        let net = $item.querySelector('[data-orc-net]').value;
         const comment = $item.querySelector('[data-orc-comment]').value;
 
         if (link !== '') {
-          if (net === 'default') {
-            net = 0;
-          }
-
           sendObject.push({
+            net: 0,
             link,
-            net,
             comment
           });
         }
@@ -2468,15 +2501,9 @@ function occupantHandler($wrapper) {
 
   function createRow(commentPlaceholder) {
     const $clone = document.importNode($rowTemplate.content, true);
-    const $select = $clone.querySelector('select');
     const $comment = $clone.querySelector('.occupant__input-item-inner--comment');
     const $commentInputPlaceholder = $comment.querySelector('input');
     const $commentTextPlaceholder = $comment.querySelector('.placeholder__item');
-    let select = new _custom_select_custom_select__WEBPACK_IMPORTED_MODULE_0__.createSelect({
-      placeholder: 'Социальная сеть',
-      values: networkOptions,
-      $select
-    });
     $commentInputPlaceholder.placeholder = commentPlaceholder;
     $commentTextPlaceholder.innerText = commentPlaceholder;
     $inputsWrapper.appendChild($clone);
@@ -2671,6 +2698,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/markup/occupant-send/occupant-send.scss":
+/*!***********************************************************!*\
+  !*** ./resources/markup/occupant-send/occupant-send.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/markup/occupant/occupant.scss":
 /*!*************************************************!*\
   !*** ./resources/markup/occupant/occupant.scss ***!
@@ -2774,6 +2814,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./resources/markup/custom-select/custom-select.js");
 /******/ 	__webpack_require__("./resources/markup/header/header.js");
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.js");
+/******/ 	__webpack_require__("./resources/markup/occupant-send/occupant-send.js");
 /******/ 	__webpack_require__("./resources/markup/placeholder/placeholder.js");
 /******/ 	__webpack_require__("./resources/markup/send/send.js");
 /******/ 	__webpack_require__("./resources/markup/base/main.scss");
@@ -2787,6 +2828,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./resources/markup/input/input.scss");
 /******/ 	__webpack_require__("./resources/markup/layout/layout.scss");
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.scss");
+/******/ 	__webpack_require__("./resources/markup/occupant-send/occupant-send.scss");
 /******/ 	__webpack_require__("./resources/markup/placeholder/placeholder.scss");
 /******/ 	var __webpack_exports__ = __webpack_require__("./resources/markup/send/send.scss");
 /******/ 	
