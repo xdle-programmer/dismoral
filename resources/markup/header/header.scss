@@ -30,6 +30,10 @@
 
     &__logo-small {
         font-size: 12px;
+
+        @include tablet-big-screen {
+            display: none;
+        }
     }
 
     &__counters {
@@ -41,6 +45,13 @@
     &__counter-item {
         margin-left: 40px;
         @include flex-row;
+        height: 44px;
+
+        @include tablet-big-screen {
+            @include flex-column;
+            margin-left: 10px;
+            height: auto;
+        }
     }
 
     &__counter-item-title {
@@ -49,6 +60,9 @@
     }
 
     &__counter-item-title-text {
+        @include tablet-big-screen {
+            font-size: 12px;
+        }
     }
 
     &__counter-item-title-number {
@@ -56,9 +70,17 @@
         background: var(--natural-color);
         border: 1px solid var(--natural-color);
         padding: 5px 10px;
-        color: var(--main-color);
         border-radius: 4px;
         color: var(--black-color);
+
+        & span {
+            display: block;
+            font-size: 10px;
+        }
+
+        @include tablet-big-screen {
+            padding: 1px 6px;
+        }
     }
 
     &__counter-item-button {
@@ -68,10 +90,19 @@
         cursor: pointer;
         margin-left: 10px;
         color: var(--white-color);
+        @include flex-row-center;
+        height: 100%;
 
         &:hover {
             background: var(--natural-color);
             color: var(--black-color);
+        }
+
+        @include tablet-big-screen {
+            width: 100%;
+            text-align: center;
+            margin-left: 0;
+            margin-top: 10px;
         }
     }
 }

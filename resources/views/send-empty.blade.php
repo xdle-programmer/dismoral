@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="send-empty layout">
-        <div class="send-empty__title">Оккупант: {!!  $orc->fio!!}</div>
+        <div class="send-empty__title">Всім окупантам яких ми знайшли в соціальних мережах, вже написали.</div>
 
-        <a href="#" class="send-empty__link"></a>
+        <a href="#" class="send-empty__link button">Знайти окупанта</a>
 
     </div>
 

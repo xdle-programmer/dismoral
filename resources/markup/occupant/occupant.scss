@@ -42,6 +42,10 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 30px;
         padding-bottom: 200px;
+
+        @include tablet-big-screen {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__helps-item {

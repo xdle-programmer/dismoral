@@ -3,12 +3,12 @@
 @section('content')
 
     <div class="occupant-send layout" data-orc-id="{{$orc->id}}">
-        <div class="occupant-send__title">Оккупант: {!!  $orc->fio!!}</div>
+        <div class="occupant-send__title">Окупант: {!!  $orc->fio!!}</div>
 
         <div class="occupant-send__items">
 
             <div class="occupant-send__links">
-                <div class="occupant-send__links-title">Социальные сети оккупанта</div>
+                <div class="occupant-send__links-title">Соціальні мережі окупанта</div>
 
                 <?php foreach ($orc->orcs as $orcLink): ?>
 
@@ -19,17 +19,15 @@
 
                 <?php endforeach; ?>
 
-                <div class="occupant-send__button button">Написал</div>
+                <div class="occupant-send__button button">Написав</div>
             </div>
 
             <div class="occupant-send__info">
-                <div class="occupant-send__info-title">Что написать?</div>
-                <div class="occupant-send__info-text">Выберите 5-10 фотографий и напишите два-три слова на русском. Достаточно написать: "Убитые русские солдаты в Украине" или
-                    "Мертвые русские срочники".
+                <div class="occupant-send__info-title">Що потрібно писати?</div>
+                <div class="occupant-send__info-text">Оберіть 5-10 фотознімків і напишіть декілька слів російською мовою. Буде достатньо написати: «Убитые русские солдаты в Украине» або «Мертвые русские срочники»
                 </div>
-                <div class="occupant-send__info-text">Не нужно вступать в переписки. Не нужно доказывать, что они виноваты или объяснять им что-то. Они не поймут.</div>
-                <div class="occupant-send__info-text">Наша задача - поддержать страх, заставить думать о том, как дезертировать, как отказаться, как сдаться в плен. Чтобы мамы,
-                    жены и дети оккупантов звонили им и рассказывали, какие страшные фотографии они увидели и просили вернуться домой.
+                <div class="occupant-send__info-text">Не треба вступати з ними в діалог, нічого не пояснюйте, вони все одно нічого не зрозуміють.</div>
+                <div class="occupant-send__info-text">Наша задача - підтримувати страх, заставити  їх думати про те як здатись в полон. Щоб матері, жінки, діти окупантів дзвонили їм і розповідали, які страшні фотографії вони отримали і просили своїх солдат повернутись додому.
                 </div>
 
 

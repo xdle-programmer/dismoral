@@ -5,6 +5,10 @@
 
 
 .layout {
-  width: 1200px;
-  @include margin-auto;
+    width: 1200px;
+    @include margin-auto;
+
+    @include tablet-big-screen {
+        width: calc(100% - 20px);
+    }
 }

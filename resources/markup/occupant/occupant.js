@@ -28,14 +28,14 @@ function occupantHandler($wrapper) {
     function init() {
         addEventListener();
 
-        createRow('Например: оккупант');
-        createRow('Например: девушка врага');
-        createRow('Например: мама');
+        createRow('Наприклад: окупант');
+        createRow('Наприклад: дівчина ворога');
+        createRow('Наприклад: мама');
     }
 
     function addEventListener() {
         $moreButton.addEventListener('click', () => {
-            createRow('Комментарий');
+            createRow('Коментар');
         });
 
         $saveButton.addEventListener('click', () => {

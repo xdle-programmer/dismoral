@@ -13,24 +13,24 @@
     <div class="layout header__block">
         <a href="/" class="header__logo">
             <div class="header__logo-big">Anti orcs</div>
-            <div class="header__logo-small">Остановим орков вместе!</div>
+            <div class="header__logo-small">Зупинемо орків разом!</div>
         </a>
 
         <div class="header__counters">
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
-                    <div class="header__counter-item-title-text">Найдено соцсетей</div>
-                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}</div>
+                    <div class="header__counter-item-title-text">Знайдені соц.мережі</div>
+                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}<span>із&nbsp;120&nbsp;000</span></div>
                 </div>
-                <a href="{{route('find')}}" class="header__counter-item-button">Найти</a>
+                <a href="{{route('find')}}" class="header__counter-item-button">Знайти</a>
             </div>
 
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
-                    <div class="header__counter-item-title-text">Написано оккупантам</div>
-                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}</div>
+                    <div class="header__counter-item-title-text">Написано окупантам</div>
+                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}<span>із&nbsp;120&nbsp;000</span></div>
                 </div>
-                <a href="{{route('send')}}" class="header__counter-item-button">Написать</a>
+                <a href="{{route('send')}}" class="header__counter-item-button">Написати</a>
             </div>
         </div>
     </div>

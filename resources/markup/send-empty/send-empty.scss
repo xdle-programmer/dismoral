@@ -1,0 +1,18 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.send-empty {
+    @include flex-column-center;
+
+    &__title {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &__link {
+        width: fit-content;
+    }
+}

@@ -4,47 +4,62 @@
 @import "../base/media-queries";
 
 .hello {
-  font-size: 22px;
-  padding-top: 50px;
-  text-align: justify;
+    font-size: 22px;
+    padding-top: 50px;
+    text-align: justify;
+    padding-bottom: 200px;
 
-  &__title {
-    font-size: 30px;
-    font-weight: 700;
-  }
+    @include tablet-big-screen {
+        padding-top: 0;
+        font-size: 18px;
+    }
 
-  &__text {
-    font-size: 28px;
+    &__title {
+        font-size: 30px;
+        font-weight: 700;
 
-  }
+        @include tablet-big-screen {
+            font-size: 24px;
+        }
+    }
 
-  &__faq {
-    margin: 30px 0;
-  }
+    &__text {
+        font-size: 28px;
 
-  &__faq-item {
-    margin-bottom: 15px;
-  }
+        @include tablet-big-screen {
+            font-size: 18px;
+        }
+    }
 
-  &__faq-item-title {
-    display: inline;
-    font-weight: 700;
-  }
+    &__faq {
+        margin: 30px 0;
 
-  &__faq-item-text {
-    display: inline;
-  }
 
-  &__buttons {
-    @include margin-auto;
-    display: grid;
-    max-width: 650px;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 15px;
-    margin-top: 30px;
-  }
+    }
 
-  &__button {
+    &__faq-item {
+        margin-bottom: 15px;
+    }
 
-  }
+    &__faq-item-title {
+        display: inline;
+        font-weight: 700;
+    }
+
+    &__faq-item-text {
+        display: inline;
+    }
+
+    &__buttons {
+        @include margin-auto;
+        display: grid;
+        max-width: 650px;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        margin-top: 30px;
+    }
+
+    &__button {
+
+    }
 }

@@ -2460,14 +2460,14 @@ function occupantHandler($wrapper) {
 
   function init() {
     addEventListener();
-    createRow('Например: оккупант');
-    createRow('Например: девушка врага');
-    createRow('Например: мама');
+    createRow('Наприклад: окупант');
+    createRow('Наприклад: дівчина ворога');
+    createRow('Наприклад: мама');
   }
 
   function addEventListener() {
     $moreButton.addEventListener('click', () => {
-      createRow('Комментарий');
+      createRow('Коментар');
     });
     $saveButton.addEventListener('click', () => {
       const $items = $wrapper.querySelectorAll('.occupant__input-item');
@@ -2737,6 +2737,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/markup/send-empty/send-empty.scss":
+/*!*****************************************************!*\
+  !*** ./resources/markup/send-empty/send-empty.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/markup/send/send.scss":
 /*!*****************************************!*\
   !*** ./resources/markup/send/send.scss ***!
@@ -2830,7 +2843,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__("./resources/markup/occupant/occupant.scss");
 /******/ 	__webpack_require__("./resources/markup/occupant-send/occupant-send.scss");
 /******/ 	__webpack_require__("./resources/markup/placeholder/placeholder.scss");
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/markup/send/send.scss");
+/******/ 	__webpack_require__("./resources/markup/send/send.scss");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/markup/send-empty/send-empty.scss");
 /******/ 	
 /******/ })()
 ;
