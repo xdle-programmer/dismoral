@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anti orcs</title>
     <link rel="stylesheet" type="text/css" href="/main.css">
@@ -20,7 +21,9 @@
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
                     <div class="header__counter-item-title-text">Знайдені соц.мережі</div>
-                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}<span>із&nbsp;120&nbsp;000</span></div>
+                    <div
+                        class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}
+                        <span>із&nbsp;120&nbsp;000</span></div>
                 </div>
                 <a href="{{route('find')}}" class="header__counter-item-button">Знайти</a>
             </div>
@@ -28,7 +31,9 @@
             <div class="header__counter-item">
                 <div class="header__counter-item-title">
                     <div class="header__counter-item-title-text">Написано окупантам</div>
-                    <div class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}<span>із&nbsp;120&nbsp;000</span></div>
+                    <div
+                        class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}
+                        <span>із&nbsp;120&nbsp;000</span></div>
                 </div>
                 <a href="{{route('send')}}" class="header__counter-item-button">Написати</a>
             </div>

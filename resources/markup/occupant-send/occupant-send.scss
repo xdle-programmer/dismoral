@@ -6,9 +6,44 @@
 .occupant-send {
     padding-bottom: 200px;
 
+    &__title-wrapper {
+        margin-bottom: 30px;
+        padding: 5px;
+
+        &--not-find {
+            background: #ffe9e9;
+        }
+
+        &--not-send {
+            background: #ffffc7;
+        }
+
+        &--done {
+            background: #e8ffe8;
+        }
+    }
+
     &__title {
         font-size: 30px;
-        margin-bottom: 30px;
+    }
+
+    &__mark {
+        font-size: 16px;
+    }
+
+    &__buttons {
+        @include flex-row;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    &__change-button {
+        color: var(--main-color);
+        font-size: 16px;
+
+    }
+
+    &__button {
     }
 
     &__text {
@@ -17,7 +52,7 @@
 
     &__items {
         display: grid;
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 2fr;
         grid-gap: 30px;
 
         @include tablet-big-screen {

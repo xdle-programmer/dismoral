@@ -11,10 +11,38 @@ use Illuminate\Validation\ValidationException;
 
 class OrcController extends Controller
 {
+
+    public function index()
+    {
+        $type = 'all';
+        $skip = 0;
+        $take = 100;
+
+        $orcs = OrcInfo::with('orcs');
+        $total = count($orcs->get());
+
+        $orcs = $orcs->take($take);
+        $orcs = $orcs->skip($skip);
+        $orcs = $orcs->get();
+
+        return view('index', ['orcs' => $orcs, 'total' => $total, 'skip' => $skip, 'type' => $type]);
+    }
+
     public function orcInfo(OrcInfo $orc)
     {
+
+        $orcs = OrcInfo::with('orcs')->orderBy('id')->get();
+        $orcId = $orc->id;
+
+        $orcIndex = $orcs->search(function ($orcItem) use ($orcId) {
+            return $orcItem->id === $orcId;
+        });
+
+        $prevOrc = $orcIndex - 1 > -1 ? $orcs[$orcIndex - 1] : null;
+        $nextOrc = $orcIndex + 1 < count($orcs) ? $orcs[$orcIndex + 1] : null;
+
         $orc->load('orcs');
-        return view('occupant', ['orc' => $orc]);
+        return view('occupant', ['orc' => $orc, 'prevOrc' => $prevOrc, 'nextOrc' => $nextOrc]);
     }
 
     public function orcSend(OrcInfo $orc)
@@ -23,12 +51,14 @@ class OrcController extends Controller
         return view('send', ['orc' => $orc]);
     }
 
+    // Вывод первого орка, которого нужно найти
     public function findOrcDoesntHaveData()
     {
         $orc = OrcInfo::doesntHave('orcs')->first();
-        return view('occupant', ['orc' => $orc]);
+        return OrcController::orcInfo($orc);
     }
 
+    // Вывод первого орка, которому нужно написать
     public function findOrcDoesntHaveSend()
     {
         $orc = OrcInfo::where('is_checked', 0)->whereHas('orcs')->first();
@@ -37,10 +67,10 @@ class OrcController extends Controller
             return view('send-empty');
         }
 
-        return view('send', ['orc' => $orc]);
+        return OrcController::orcInfo($orc);
     }
 
-
+    // Сохранение отметки, что орку написали
     public function ocrCheck(OrcInfo $orc)
     {
         $orc->is_checked = 1;
@@ -50,6 +80,7 @@ class OrcController extends Controller
         ]);
     }
 
+    // Сохранение ссылок
     public function saveOrc(Request $request, OrcInfo $orc)
     {
         $request->validate([
@@ -75,5 +106,38 @@ class OrcController extends Controller
         ]);
     }
 
+    // Вывод списка с пагинацией
+    public function orcList(Request $request)
+    {
+        // all  find  send
+        $type = $request['type'];
+        $skip = 0;
+        $take = 100;
 
+        if ($request['type'] === null) {
+            $type = 'all';
+        }
+
+        if ($request['skip'] !== null) {
+            $skip = $request['skip'];
+        }
+
+        $orcs;
+
+        if ($type === 'all') {
+            $orcs = OrcInfo::with('orcs');
+        } else if ($type === 'find') {
+            $orcs = OrcInfo::with('orcs')->doesntHave('orcs');
+        } else if ($type === 'send') {
+            $orcs = OrcInfo::with('orcs')->where('is_checked', 0)->whereHas('orcs');
+        }
+
+        $total = count($orcs->get());
+
+        $orcs = $orcs->take($take);
+        $orcs = $orcs->skip($skip);
+        $orcs = $orcs->get();
+
+        return view('index', ['orcs' => $orcs, 'total' => $total, 'skip' => $skip, 'type' => $type]);
+    }
 }

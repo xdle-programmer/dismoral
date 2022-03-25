@@ -5,9 +5,8 @@
 
 .hello {
     font-size: 22px;
-    padding-top: 50px;
     text-align: justify;
-    padding-bottom: 200px;
+    padding-bottom: 50px;
 
     @include tablet-big-screen {
         padding-top: 0;
@@ -24,7 +23,7 @@
     }
 
     &__text {
-        font-size: 28px;
+        font-size: 20px;
 
         @include tablet-big-screen {
             font-size: 18px;
@@ -61,5 +60,133 @@
 
     &__button {
 
+    }
+
+    $border-color: #cbcbcb;
+
+    &__list {
+        margin-top: 30px;
+        font-size: 13px;
+    }
+
+    &__list-buttons {
+        @include flex-row;
+        border-radius: 4px;
+        overflow: hidden;
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+
+    &__list-button {
+        background: #9b9b9b;
+        color: var(--white-color);
+        font-size: 13px;
+        padding: 5px 10px;
+        @include flex-row-center;
+        cursor: pointer;
+
+        &--active {
+            background: var(--main-color);
+            color: var(--white-color);
+        }
+    }
+
+    &__list-cell {
+        padding: 10px;
+        border-right: 1px solid $border-color;
+        text-align: left;
+
+        @include tablet-big-screen {
+            border-right: none;
+            padding: 5px;
+        }
+
+        &--header {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        &:nth-last-of-type(1) {
+            border-right: none;
+        }
+
+        &--header {
+        }
+    }
+
+    &__list-cell-mobile-name {
+        display: none;
+
+        @include tablet-big-screen {
+            display: block;
+            font-size: 10px;
+        }
+    }
+
+    &__list-items {
+        border: 1px solid $border-color;
+    }
+
+    &__list-item {
+        border-bottom: 1px solid $border-color;
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr 200px;
+
+        @include tablet-big-screen {
+            grid-template-columns: 1fr;
+        }
+
+        &--header {
+            @include tablet-big-screen {
+                display: none;
+            }
+        }
+
+        &--not-find {
+            background: #ffe9e9;
+        }
+
+        &--not-send {
+            background: #ffffc7;
+        }
+
+        &--done {
+            background: #e8ffe8;
+        }
+
+        &:nth-last-of-type(1) {
+            border-bottom: none;
+        }
+    }
+
+    &__list-cell-button {
+        padding: 5px 15px;
+        height: auto;
+    }
+
+    &__list-pagination {
+        @include flex-row-center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    &__list-pagination-button {
+        height: 30px;
+        min-width: 40px;
+        @include flex-row-center;
+        padding: 0 5px;
+        cursor: pointer;
+        background: #9b9b9b;
+        color: var(--white-color);
+        margin: 3px;
+
+        &--active {
+            background: var(--main-color);
+        }
+    }
+
+    &__list-pagination-separator {
+        margin: 0 10px;
     }
 }

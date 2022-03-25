@@ -39,7 +39,7 @@
     &__helps {
         margin-top: 60px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-gap: 30px;
         padding-bottom: 200px;
 
@@ -61,7 +61,7 @@
     &__helps-item-images {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 5px;
+        grid-gap: 50px;
     }
 
     &__helps-item-image {

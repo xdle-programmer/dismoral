@@ -14,15 +14,24 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Главная страница и страница списка
+Route::get('/', [Controllers\OrcController::class, 'orcList'])->name('list');
+Route::get('list', [Controllers\OrcController::class, 'orcList'])->name('list');
 
-
+//Страница оккупанта
 Route::get('occupant/item/{orc}', [Controllers\OrcController::class, 'orcInfo']);
-Route::get('occupant/send/{orc}', [Controllers\OrcController::class, 'orcSend']);
+
+//Пост запрос для сохранения ссылок
+Route::post('occupant/item/{orc}/add-data', [Controllers\OrcController::class, 'saveOrc']);
+
+//Пост запрос для отметки "Написал"
+Route::post('occupant/item/{orc}/check', [Controllers\OrcController::class, 'ocrCheck'])->name('check');
+
+
+
 Route::get('occupant/find', [Controllers\OrcController::class, 'findOrcDoesntHaveData'])->name('find');
 Route::get('occupant/send', [Controllers\OrcController::class, 'findOrcDoesntHaveSend'])->name('send');
 
-Route::post('occupant/item/{orc}/check', [Controllers\OrcController::class, 'ocrCheck'])->name('check');
-Route::post('occupant/item/{orc}/add-data', [Controllers\OrcController::class, 'saveOrc']);
+
+
+
