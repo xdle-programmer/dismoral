@@ -27,9 +27,10 @@ Route::post('occupant/item/{orc}/add-data', [Controllers\OrcController::class, '
 //Пост запрос для отметки "Написал"
 Route::post('occupant/item/{orc}/check', [Controllers\OrcController::class, 'ocrCheck'])->name('check');
 
-
-
+//Ссылка для редиректа первого орка, которого нужно найти
 Route::get('occupant/find', [Controllers\OrcController::class, 'findOrcDoesntHaveData'])->name('find');
+
+//Ссылка для редиректа первого орка, которому нужно написать
 Route::get('occupant/send', [Controllers\OrcController::class, 'findOrcDoesntHaveSend'])->name('send');
 
 

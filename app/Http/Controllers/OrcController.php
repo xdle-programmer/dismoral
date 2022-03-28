@@ -11,23 +11,7 @@ use Illuminate\Validation\ValidationException;
 
 class OrcController extends Controller
 {
-
-    public function index()
-    {
-        $type = 'all';
-        $skip = 0;
-        $take = 100;
-
-        $orcs = OrcInfo::with('orcs');
-        $total = count($orcs->get());
-
-        $orcs = $orcs->take($take);
-        $orcs = $orcs->skip($skip);
-        $orcs = $orcs->get();
-
-        return view('index', ['orcs' => $orcs, 'total' => $total, 'skip' => $skip, 'type' => $type]);
-    }
-
+    // Функция, отдающая страницу оккупанта
     public function orcInfo(OrcInfo $orc)
     {
 
@@ -45,17 +29,17 @@ class OrcController extends Controller
         return view('occupant', ['orc' => $orc, 'prevOrc' => $prevOrc, 'nextOrc' => $nextOrc]);
     }
 
-    public function orcSend(OrcInfo $orc)
-    {
-        $orc->load('orcs');
-        return view('send', ['orc' => $orc]);
-    }
-
     // Вывод первого орка, которого нужно найти
     public function findOrcDoesntHaveData()
     {
+
         $orc = OrcInfo::doesntHave('orcs')->first();
-        return OrcController::orcInfo($orc);
+
+        if ($orc === null) {
+            return view('find-empty');
+        }
+
+        return redirect('occupant/item/' . $orc->id);
     }
 
     // Вывод первого орка, которому нужно написать
@@ -67,7 +51,7 @@ class OrcController extends Controller
             return view('send-empty');
         }
 
-        return OrcController::orcInfo($orc);
+        return redirect('occupant/item/' . $orc->id);
     }
 
     // Сохранение отметки, что орку написали
@@ -114,7 +98,7 @@ class OrcController extends Controller
         $skip = 0;
         $take = 100;
 
-        if ($request['type'] === null) {
+        if (!$request['type']) {
             $type = 'all';
         }
 
@@ -132,12 +116,14 @@ class OrcController extends Controller
             $orcs = OrcInfo::with('orcs')->where('is_checked', 0)->whereHas('orcs');
         }
 
+        $requestType = $type;
+
         $total = count($orcs->get());
 
         $orcs = $orcs->take($take);
         $orcs = $orcs->skip($skip);
         $orcs = $orcs->get();
 
-        return view('index', ['orcs' => $orcs, 'total' => $total, 'skip' => $skip, 'type' => $type]);
+        return view('index', ['orcs' => $orcs, 'total' => $total, 'skip' => $skip, 'type' => $type, 'requestType' => $requestType]);
     }
 }

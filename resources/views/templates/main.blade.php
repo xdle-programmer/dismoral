@@ -23,7 +23,8 @@
                     <div class="header__counter-item-title-text">Знайдені соц.мережі</div>
                     <div
                         class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::whereHas('orcs')->get())}}
-                        <span>із&nbsp;120&nbsp;000</span></div>
+                        <span>із&nbsp;{{number_format(count(\App\Models\OrcInfo::all()),0,'',' ')}}</span>
+                    </div>
                 </div>
                 <a href="{{route('find')}}" class="header__counter-item-button">Знайти</a>
             </div>
@@ -33,7 +34,8 @@
                     <div class="header__counter-item-title-text">Написано окупантам</div>
                     <div
                         class="header__counter-item-title-number">{{count(\App\Models\OrcInfo::where('is_checked', 1)->get())}}
-                        <span>із&nbsp;120&nbsp;000</span></div>
+                        <span>із&nbsp;{{number_format(count(\App\Models\OrcInfo::all()),0,'',' ')}}</span>
+                    </div>
                 </div>
                 <a href="{{route('send')}}" class="header__counter-item-button">Написати</a>
             </div>

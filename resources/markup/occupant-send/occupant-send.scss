@@ -40,7 +40,11 @@
     &__change-button {
         color: var(--main-color);
         font-size: 16px;
+        white-space: nowrap;
 
+        @include tablet-big-screen {
+            font-size: 13px;
+        }
     }
 
     &__button {
@@ -75,6 +79,12 @@
     &__link {
         font-size: 20px;
         text-decoration: underline;
+        width: 100%;
+        display: block;
+        max-width: 300px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     &__link-comment {

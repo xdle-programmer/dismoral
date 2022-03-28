@@ -284,7 +284,8 @@ button:focus, input:focus, textarea:focus {
     color: var(--black-color); }
     .header__counter-item-title-number span {
       display: block;
-      font-size: 10px; }
+      font-size: 10px;
+      white-space: nowrap; }
     @media (max-width: 1279px) {
       .header__counter-item-title-number {
         padding: 1px 6px; } }
@@ -395,7 +396,7 @@ button:focus, input:focus, textarea:focus {
   .hello__list-item {
     border-bottom: 1px solid #cbcbcb;
     display: grid;
-    grid-template-columns: 100px 1fr 1fr 200px; }
+    grid-template-columns: 105px 1fr 1fr 200px; }
     @media (max-width: 1279px) {
       .hello__list-item {
         grid-template-columns: 1fr; } }
@@ -595,7 +596,11 @@ button:focus, input:focus, textarea:focus {
     padding: 10px 0; }
   .occupant-send__change-button {
     color: var(--main-color);
-    font-size: 16px; }
+    font-size: 16px;
+    white-space: nowrap; }
+    @media (max-width: 1279px) {
+      .occupant-send__change-button {
+        font-size: 13px; } }
   .occupant-send__text {
     margin-bottom: 30px; }
   .occupant-send__items {
@@ -612,7 +617,13 @@ button:focus, input:focus, textarea:focus {
     margin-bottom: 10px; }
   .occupant-send__link {
     font-size: 20px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    width: 100%;
+    display: block;
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .occupant-send__link-comment {
     font-style: italic; }
   .occupant-send__info-title {

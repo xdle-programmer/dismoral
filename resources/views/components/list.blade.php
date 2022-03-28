@@ -1,15 +1,22 @@
 <div class="hello__list">
+
     <div class="hello__list-buttons">
-        <a href="/list" class="hello__list-button hello__list-button--active">Все</a>
-        <a href="/list?type=find" class="hello__list-button">Нужно найти</a>
-        <a href="/list?type=send" class="hello__list-button">Нужно написать</a>
+        <a href="/list"
+           class="hello__list-button <?php echo $requestType === 'all' ? 'hello__list-button--active' : ''; ?>">Усі
+            окупанти</a>
+        <a href="/list?type=find"
+           class="hello__list-button <?php echo $requestType === 'find' ? 'hello__list-button--active' : ''; ?>">Нужно
+            знайти</a>
+        <a href="/list?type=send"
+           class="hello__list-button <?php echo $requestType === 'send' ? 'hello__list-button--active' : ''; ?>">Нужно
+            написати</a>
     </div>
 
     <div class="hello__list-items">
         <div class="hello__list-item hello__list-item--header">
             <div class="hello__list-cell hello__list-cell--header">Статус</div>
-            <div class="hello__list-cell hello__list-cell--header">ФИО</div>
-            <div class="hello__list-cell hello__list-cell--header">Информация</div>
+            <div class="hello__list-cell hello__list-cell--header">ПІБ</div>
+            <div class="hello__list-cell hello__list-cell--header">Інформація</div>
             <div class="hello__list-cell hello__list-cell--header"></div>
         </div>
     </div>
@@ -18,17 +25,17 @@
         <?php foreach ($orcs as $orc):
 
         $itemClassName = 'hello__list-item--done';
-        $itemStatusName = 'Нашли и написали';
-        $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Написать</a>';
+        $itemStatusName = 'Знайшли та написали';
+        $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Написати</a>';
 
         if (count($orc->orcs) === 0) {
             $itemClassName = 'hello__list-item--not-find';
-            $itemStatusName = 'Нужно найти';
-            $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Найти</a>';
+            $itemStatusName = 'Потрібно знайти';
+            $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Знайти</a>';
         } elseif (!$orc->is_checked) {
             $itemClassName = 'hello__list-item--not-send';
-            $itemStatusName = 'Нужно написать';
-            $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Написать</a>';
+            $itemStatusName = 'Потрібно написати';
+            $itemLink = '<a href="occupant/item/' . $orc->id . '" class="hello__list-cell-button button">Написати</a>';
         }
 
         ?>
@@ -40,11 +47,11 @@
             </div>
 
             <div class="hello__list-cell">
-                <div class="hello__list-cell-mobile-name">ФИО</div>
+                <div class="hello__list-cell-mobile-name">ПІБ</div>
                 <?= $orc->fio ?>
             </div>
             <div class="hello__list-cell">
-                <div class="hello__list-cell-mobile-name">Информация</div>
+                <div class="hello__list-cell-mobile-name">Інформація</div>
                 <?= $orc->person ?>
                 <?= $orc->l_number ?>
                 <?= $orc->tab_number ?>

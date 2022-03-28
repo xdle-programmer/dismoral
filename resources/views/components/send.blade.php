@@ -6,7 +6,7 @@
         <?php foreach ($orc->orcs as $orcLink): ?>
 
         <div class="occupant-send__link-wrapper">
-            <a href="<?= $orcLink->link ?>" class="occupant-send__link"><?= $orcLink->link ?></a>
+            <a target="_blank" href="<?= $orcLink->link ?>" class="occupant-send__link"><?= $orcLink->link ?></a>
             <div class="occupant-send__link-comment"><?= $orcLink->comment; ?></div>
         </div>
 

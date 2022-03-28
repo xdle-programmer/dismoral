@@ -130,7 +130,7 @@
     &__list-item {
         border-bottom: 1px solid $border-color;
         display: grid;
-        grid-template-columns: 100px 1fr 1fr 200px;
+        grid-template-columns: 105px 1fr 1fr 200px;
 
         @include tablet-big-screen {
             grid-template-columns: 1fr;
